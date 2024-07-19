@@ -44,8 +44,11 @@ android {
 dependencies {
     implementation(libs.hilt.android)
     implementation(project(":api_bluetooth_scan"))
+    implementation(project(":api_ble_communication"))
     kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.fragment)
 
+    implementation (libs.androidx.lifecycle.viewmodel.compose.v260)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -9,6 +9,8 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven("https://jitpack.io")
+        jcenter()
     }
 }
 dependencyResolutionManagement {
@@ -16,6 +18,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io")
+        jcenter()
     }
 }
 
@@ -25,3 +29,7 @@ include(":api_bluetooth_scan")
 include(":impl_bluetooth_scan")
 include(":api_bluetooth_scan_screen")
 include(":impl_bluetooth_scan_screen")
+include(":api_ble_communication")
+include(":impl_ble_communication")
+include(":api_main_screen")
+include(":impl_main_screen")

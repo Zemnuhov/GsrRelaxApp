@@ -1,6 +1,7 @@
 package com.zemnuhov.impl_bluetooth_scan_screen
 
 import android.content.Context
+import com.neurotech.core_bluetooth_comunication_api.BluetoothConnection
 import com.zemnuhov.api_bluetooth_scan.BluetoothScan
 import dagger.Component
 import dagger.hilt.EntryPoint
@@ -44,6 +45,7 @@ interface ScanScreenComponent {
 @InstallIn(SingletonComponent::class)
 interface ScanScreenDependencies {
     fun bluetoothScan(): BluetoothScan
+    fun bluetoothConnection(): BluetoothConnection
 }
 
 interface ScanScreenDependenciesProvider {

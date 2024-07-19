@@ -1,6 +1,10 @@
 [versions]
+activityKtx = "1.9.0"
 agp = "8.5.0"
+ble = "2.6.0"
+compose = "2.0.0-alpha.24"
 hiltAndroidCompiler = "2.51.1"
+hiltNavigationFragment = "1.2.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -8,14 +12,27 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.3"
 activityCompose = "1.9.0"
-composeBom = "2024.04.01"
+composeBom = "2024.06.00"
 appcompat = "1.7.0"
+lifecycleViewmodelCompose = "2.8.3"
 material = "1.12.0"
 scanner = "1.6.0"
 navigationCompose = "2.7.7"
+tempo = "0.7.0"
 
 [libraries]
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-hilt-navigation-fragment = { module = "androidx.hilt:hilt-navigation-fragment", version.ref = "hiltNavigationFragment" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-viewmodel-compose-v260 = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
+ble = { module = "no.nordicsemi.android:ble", version.ref = "ble" }
+ble-ktx = { module = "no.nordicsemi.android:ble-ktx", version.ref = "ble" }
+compose = { module = "com.patrykandpatrick.vico:compose", version.ref = "compose" }
+compose-m2 = { module = "com.patrykandpatrick.vico:compose-m2", version.ref = "compose" }
+core = { module = "com.patrykandpatrick.vico:core", version.ref = "compose" }
+compose-m3 = { module = "com.patrykandpatrick.vico:compose-m3", version.ref = "compose" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroidCompiler" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -35,6 +52,8 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 scanner = { module = "no.nordicsemi.android.support.v18:scanner", version.ref = "scanner" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+tempo = { module = "com.github.cesarferreira:tempo", version.ref = "tempo" }
+views = { module = "com.patrykandpatrick.vico:views", version.ref = "compose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
