@@ -7,6 +7,12 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.neurotech.core_bluetooth_comunication_api.BluetoothConnection
 import com.neurotech.core_bluetooth_comunication_api.BluetoothData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,12 +25,35 @@ class MainScreenViewModel(
     val phaseData = bluetoothData.getPhaseValueFlow()
     val connectionState = bluetoothConnection.getConnectionStateFlow()
 
+    var peaksCount = MutableStateFlow(0)
+    var isPeaks = false
+    var beginTonic = 0
+
     init {
         viewModelScope.launch {
             phaseData.collect{
-                Log.e("TEST", it.toString())
+                if(it.value>3 && !isPeaks){
+                    peaksCount.emit(peaksCount.value+1)
+                    isPeaks = true
+                }
+                if(it.value < 3 && isPeaks){
+                    isPeaks = false
+                }
             }
         }
+        viewModelScope.launch {
+            beginTonic = tonicData.first().value
+        }
+    }
+
+    fun beginSession(){
+        viewModelScope.launch {
+            beginTonic = tonicData.first().value
+        }
+        viewModelScope.launch {
+            peaksCount.emit(0)
+        }
+
     }
 
 

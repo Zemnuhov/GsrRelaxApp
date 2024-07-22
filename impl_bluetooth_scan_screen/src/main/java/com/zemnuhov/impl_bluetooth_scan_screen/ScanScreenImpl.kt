@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -78,7 +79,9 @@ class ScanScreenImpl @Inject constructor(@ApplicationContext context: Context) :
                 CoroutineScope(Dispatchers.IO).launch { viewModel.startScan() }
             }, modifier = Modifier
                 .fillMaxWidth()
-                .weight(0.05F)) {
+                .weight(0.05F),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0,187,89))
+            ) {
                 Text("Начать поиск Bluetooth устройств")
             }
 

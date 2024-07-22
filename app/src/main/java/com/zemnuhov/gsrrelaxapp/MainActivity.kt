@@ -65,7 +65,7 @@ class MainActivity : ComponentActivity() {
                     .fillMaxWidth()
                     .fillMaxHeight(0.1F)
                     .shadow(16.dp)
-                    .background(color = Color.LightGray),
+                    .background(color = Color(0,187,89)),
                 contentAlignment = Alignment.BottomStart
             ) {
                 Icon(
@@ -77,7 +77,9 @@ class MainActivity : ComponentActivity() {
 
                 )
             }
-            NavHost(navController = navController, startDestination = "scan") {
+            NavHost(navController = navController, startDestination = "scan", modifier = Modifier.fillMaxSize().background(
+                Color(228,228,228)
+            )) {
                 composable("scan") { scanScreen.DrawScreen(navController) }
                 composable("main") { mainScreen.DrawScreen() }
             }

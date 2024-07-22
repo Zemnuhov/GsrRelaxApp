@@ -27,7 +27,9 @@ import com.neurotech.core_bluetooth_comunication_impl.ListUUID.tonicFlowUUID
 import com.neurotech.core_bluetooth_comunication_impl.model.PhaseEntityFromDevice
 import com.neurotech.data.modules.bluetooth.data.filters.ExpRunningAverage
 import com.neurotech.utils.TimeFormat
+import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -39,7 +41,9 @@ import no.nordicsemi.android.ble.ktx.stateAsFlow
 import no.nordicsemi.android.ble.ktx.suspend
 import java.nio.ByteBuffer
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class AppBluetoothManager @Inject constructor (
     @ApplicationContext context: Context
 ) : BleManager(context) {
